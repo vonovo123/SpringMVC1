@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/item-service" />
+        <option name="gradleJvm" value="azul-13" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/item-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/servlet" />
+        <option name="gradleJvm" value="azul-13" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/servlet" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/springmvc" />
+        <option name="gradleJvm" value="azul-13" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/springmvc" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

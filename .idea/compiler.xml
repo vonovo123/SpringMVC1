@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.18/481f5bfed3ae29f656eedfe9e98c8365b8ba5c57/lombok-1.18.18.jar" />
+        </processorPath>
+        <module name="springmvc.main" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="item-service" options="-parameters" />
+      <module name="item-service.main" options="-parameters" />
+      <module name="item-service.test" options="-parameters" />
+      <module name="servlet" options="-parameters" />
+      <module name="servlet.main" options="-parameters" />
+      <module name="servlet.test" options="-parameters" />
+      <module name="springmvc" options="-parameters" />
+      <module name="springmvc.main" options="-parameters" />
+      <module name="springmvc.test" options="-parameters" />
+    </option>
+  </component>
+</project>
