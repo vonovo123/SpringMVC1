@@ -1,6 +1,11 @@
 package hello.servlet.web.frontcontroller.v4;
 
+import hello.servlet.web.frontcontroller.ModelView;
 import hello.servlet.web.frontcontroller.MyView;
+import hello.servlet.web.frontcontroller.v3.ControllerV3;
+import hello.servlet.web.frontcontroller.v3.controller.MemberFormControllerV3;
+import hello.servlet.web.frontcontroller.v3.controller.MemberListControllerV3;
+import hello.servlet.web.frontcontroller.v3.controller.MemberSaveControllerV3;
 import hello.servlet.web.frontcontroller.v4.controller.MemberFormControllerV4;
 import hello.servlet.web.frontcontroller.v4.controller.MemberListControllerV4;
 import hello.servlet.web.frontcontroller.v4.controller.MemberSaveControllerV4;
@@ -36,23 +41,20 @@ public class FrontControllerServletV4 extends HttpServlet {
             return;
         }
 
-        Map<String, String> paramMap = createParamMap(request);
-        Map<String, Object> model = new HashMap<>(); //추가
-
-        String viewName = controller.process(paramMap, model);
-
+        Map<String,String> paramMap = createParamMap(request);
+        Map<String,Object> model = new HashMap<>();
+        String viewName = controller.process(paramMap,model);
         MyView view = viewResolver(viewName);
         view.render(model, request, response);
     }
 
-    private MyView viewResolver(String viewName) {
-        return new MyView("/WEB-INF/views/" + viewName + ".jsp");
+    private MyView viewResolver(String viewName){
+        return new MyView("/WEB-INF/views/"+viewName+".jsp");
     }
 
     private Map<String, String> createParamMap(HttpServletRequest request) {
-        Map<String, String> paramMap = new HashMap<>();
-        request.getParameterNames().asIterator()
-                .forEachRemaining(paramName -> paramMap.put(paramName, request.getParameter(paramName)));
+        Map<String,String> paramMap = new HashMap<>();
+        request.getParameterNames().asIterator().forEachRemaining(name -> paramMap.put(name, request.getParameter(name)));
         return paramMap;
     }
 }

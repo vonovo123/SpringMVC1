@@ -21,9 +21,7 @@ public class RequestParamController {
     public void requestParamV1(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         int age = Integer.parseInt(request.getParameter("age"));
-
-
-        response.getWriter().write("ok");
+        response.getWriter().write("username : " + username + " age : " + age);
     }
 
     @ResponseBody
