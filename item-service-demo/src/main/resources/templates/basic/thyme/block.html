@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block th:each="user : ${users}">
+    <div>
+        user name <span th:text="${user['username']}"></span>
+        user age <span th:text="${user['age']}"></span>
+    </div>
+    <div>
+        summary<span th:text="${user['username'] + '/' + user['age']}"></span>
+    </div>
+</th:block>
+</body>
+</html>

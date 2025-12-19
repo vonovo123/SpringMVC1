@@ -19,12 +19,13 @@ public class BasicItemController {
     @GetMapping
     public String items(Model model) {
         model.addAttribute("items", itemRepository.findAll());
-        return "basic/items";
+        return "basic/items/items";
     }
 
     @GetMapping("/add")
     public String addForm(Model model) {
-        return "basic/addForm";
+        model.addAttribute("item", new Item());
+        return "basic/items/addForm";
     }
 
     //@PostMapping("/add")
@@ -33,35 +34,34 @@ public class BasicItemController {
         Item item = new Item(itemName, price, quantity);
         itemRepository.save(item);
         model.addAttribute("item", item);
-        return "basic/item";
+        return "basic/items/item";
     }
 
     //@PostMapping("/add")
     /*@ModelAttribute 활용*/
     public String addItemV2(@ModelAttribute("item") Item item, Model model) {
         itemRepository.save(item);
-        return "basic/item";
+        return "basic/items/item";
     }
 
     //@PostMapping("/add")
     /*@ModelAttribute parameter name 생략*/
     public String addItemV3(@ModelAttribute Item item) {
         itemRepository.save(item);
-        return "basic/item";
+        return "basic/items/item";
     }
 
     //@PostMapping("/add")
     /*@ModelAttribute 생략*/
     public String addItemV4(Item item) {
         itemRepository.save(item);
-        return "basic/item";
+        return "basic/items/item";
     }
 
     //@PostMapping("/add")
     /*POST/Redirect/get*/
     public String addItemV5(Item item) {
         itemRepository.save(item);
-
         return "redirect:/basic/items/" + item.getId();
     }
 
@@ -78,14 +78,15 @@ public class BasicItemController {
     public String item(@PathVariable Long itemId, Model model) {
         Item item = itemRepository.findById(itemId);
         model.addAttribute("item", item);
-        return "basic/item";
+        return "basic/items/item";
     }
 
     @GetMapping("/{itemId}/edit")
     public String editForm(@PathVariable Long itemId, Model model) {
         Item item = itemRepository.findById(itemId);
         model.addAttribute("item", item);
-        return "basic/editForm";
+        System.out.println(item.toString());
+        return "basic/items/editForm";
     }
     @PostMapping("/{itemId}/edit")
     public String editItem(@PathVariable Long itemId, @ModelAttribute Item item, Model model) {

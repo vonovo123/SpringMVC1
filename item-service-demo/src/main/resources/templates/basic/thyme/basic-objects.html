@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Expression Basic Object</h1>
+<ul>
+    <li>${user.username} = <span th:text="${request}"></span></li>
+    <li>${user['username']} = <span th:text="${response}"></span></li>
+    <li>${user.getUsername()} = <span th:text="${session}"></span></li>
+    <li>${user.getUsername()} = <span th:text="${servletContext}"></span></li>
+    <li>${user.getUsername()} = <span th:text="${#locale}"></span></li>
+</ul>
+<h1>편의 객체</h1>
+<ul>
+    <li>RequestParameter = <span th:text="${param.paramData}"></span></li>
+    <li>Session =<span th:text="${session.sessionData}"></span></li>
+    <li>Spring bean <span th:text="${@HelloBean.hello('Spring!')}"></span></li>
+</ul>
+</body>
+</html>
