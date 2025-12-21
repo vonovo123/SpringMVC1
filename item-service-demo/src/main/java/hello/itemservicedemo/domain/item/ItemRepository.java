@@ -31,7 +31,12 @@ public class ItemRepository {
         find.setItemName(item.getItemName());
         find.setPrice(item.getPrice());
         find.setQuantity(item.getQuantity());
+        find.setOpen(item.getOpen());
+        find.setItemType(item.getItemType());
+        find.setRegions(item.getRegions());
+        find.setDeliveryCode(item.getDeliveryCode());
     }
+
     public void clear(){
         store.clear();
     }

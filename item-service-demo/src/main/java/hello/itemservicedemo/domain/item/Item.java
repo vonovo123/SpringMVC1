@@ -1,8 +1,10 @@
 package hello.itemservicedemo.domain.item;
 
+import hello.itemservicedemo.ItemType;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 public class Item {
@@ -10,6 +12,11 @@ public class Item {
     private String itemName;
     private Integer price;
     private Integer quantity;
+
+    private Boolean open;
+    private List<String> regions;
+    private ItemType itemType;
+    private String deliveryCode;
 
     public Item() {}
 
