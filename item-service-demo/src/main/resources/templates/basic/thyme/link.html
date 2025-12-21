@@ -1,0 +1,15 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>URL Lnk</h1>
+<ul>
+    <li>${#temporals.day(localDateTime)} = <a th:href="@{/hello}">basic url</a></li>
+    <li>${#temporals.day(localDateTime)} = <a th:href="@{/hello(param1=${param1},param2=${param2})}">hello query param</a></li>
+    <li>${#temporals.day(localDateTime)} = <a th:href="@{/hello/{param1}/{param2}(param1=${param1},param2=${param2})}">path variable</a></li>
+    <li>${#temporals.day(localDateTime)} = <a th:href="@{/hello/{param1}(param1=${param1},param2=${param2})}">path variable + query parameter</a></li>
+</ul>
+</body>
+</html>

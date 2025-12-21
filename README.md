@@ -195,4 +195,13 @@ WAS의 주요 튜닝 포인트는 최대 쓰레드 수 설정이다.
 - 타임리프
   - 내추럴 템플릿 : HTML 의 형태를 유지하며 뷰 템플릿 적용 가능
   - 스프링 MVC와 강력한 기능 통합
-  
+ 
+## HTTP 요청 개요 
+
+- GET : query parameter
+  - /url?username
+- POST : HTML FORM
+- HTTP Message body
+  - HTTP API 에서 주로 사용
+  - 데이터 형식은 주로 JSON
+

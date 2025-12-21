@@ -2,6 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/item-service.iml" filepath="$PROJECT_DIR$/.idea/modules/item-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/item-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/item-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/item-service.test.iml" filepath="$PROJECT_DIR$/.idea/modules/item-service.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/servlet.iml" filepath="$PROJECT_DIR$/.idea/modules/servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/servlet.main.iml" filepath="$PROJECT_DIR$/.idea/modules/servlet.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/servlet.test.iml" filepath="$PROJECT_DIR$/.idea/modules/servlet.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/springmvc.iml" filepath="$PROJECT_DIR$/.idea/modules/springmvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/springmvc.main.iml" filepath="$PROJECT_DIR$/.idea/modules/springmvc.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/springmvc.test.iml" filepath="$PROJECT_DIR$/.idea/modules/springmvc.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/springmvc1.iml" filepath="$PROJECT_DIR$/.idea/springmvc1.iml" />
     </modules>
   </component>

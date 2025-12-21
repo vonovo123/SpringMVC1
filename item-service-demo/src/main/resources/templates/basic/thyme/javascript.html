@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script th:inline="javascript">
+    var username = "userA";
+ var age = 10;
+//자바스크립트 내추럴 템플릿 var username2 = "userA";
+//객체
+var user = {"username":"userA","age":10};
+    console.log(JSON.stringify(user));
+</script>
+</body>
+</html>
