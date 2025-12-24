@@ -1,4 +1,4 @@
-package hello.itemservicedemo.web.template;
+package hello.thyme;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
