@@ -1,7 +1,7 @@
 package hello.itemService.domain.item;
 
-import hello.itemservicedemo.domain.item.Item;
-import hello.itemservicedemo.domain.item.ItemRepository;
+import hello.itemservice.domain.item.Item;
+import hello.itemservice.domain.item.ItemRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
