@@ -10,6 +10,5 @@ public class SpringMVCApplication implements WebMvcConfigurer {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringMVCApplication.class, args);
 	}
-
-//
 }
+

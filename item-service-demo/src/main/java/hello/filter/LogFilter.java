@@ -1,4 +1,4 @@
-package hello.loginservice.web.filter;
+package hello.filter;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,8 +20,14 @@ public class LogFilter implements Filter {
         HttpServletRequest  req = (HttpServletRequest) request;
         String requestURI = req.getRequestURI();
         String uuid = UUID.randomUUID().toString();
-        log.info("REQUEST [{}][{}]",uuid,requestURI);
-        chain.doFilter(req,response);
+        try{
+            log.info("REQUEST [{}][{}][{}]",uuid,requestURI,request.getDispatcherType());
+            chain.doFilter(req,response);
+        }catch(Exception e){
+            throw e;
+        }finally {
+            log.info("REQUEST [{}][{}]",uuid,request.getDispatcherType());
+        }
     }
 
     @Override

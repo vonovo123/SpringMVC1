@@ -1,13 +1,19 @@
 package hello.exception;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/error-page")
@@ -46,8 +52,26 @@ public class ErrorPageController {
     @GetMapping("/500")
     public String ErrorPage500(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         log.error("500 Internal Server Error");
-        printErrorLog(req);
         return "/error-page/500";
+    }
+
+    @RequestMapping(value = "/500",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, Object>> errorPage500Api(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        log.info("500 Internal Server Error API ###");
+        try{
+            HashMap<String, Object> result = new HashMap<>();
+            Exception ex =(Exception) req.getAttribute(ERROR_EXCEPTION);
+            result.put("status", req.getAttribute(ERROR_STATUS_CODE));
+            result.put("message", ex.getMessage());
+            Integer statusCode = (Integer)req.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
+            log.info("Status Code: {}", statusCode);
+            log.info("status: {}", req.getAttribute(ERROR_STATUS_CODE));
+            return new ResponseEntity(result, HttpStatus.valueOf(statusCode));
+        } catch (Exception e) {
+            log.info(e.getMessage());
+        }
+        return null;
+
     }
 
     private void printErrorLog(HttpServletRequest request) {

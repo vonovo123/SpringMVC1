@@ -1,4 +1,4 @@
-package hello.loginservice.web.interceptor;
+package hello.interceptor;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -23,7 +23,7 @@ public class LogInterceptor implements HandlerInterceptor {
             HandlerMethod hm = (HandlerMethod) handler;
             log.info("hm: {}", hm.getBean().getClass().getName());
         }
-        log.info("REQUEST [{}][{}][{}]", requestUrl, uuid, request, handler);
+        log.info("REQUEST [{}][{}][{}]", requestUrl, uuid, request.getDispatcherType(), handler);
         return true;
     }
 
@@ -36,7 +36,7 @@ public class LogInterceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex) throws Exception {
         String requestUrl = request.getRequestURL().toString();
         String logId = (String) request.getAttribute(LOG_ID);
-        log.info("response [{}][{}]", logId, requestUrl);
+        log.info("response [{}][{}][{}]", logId, request.getDispatcherType(), requestUrl);
         if(ex!=null) log.error("afterCompletion!!!", ex);
     }
 }
