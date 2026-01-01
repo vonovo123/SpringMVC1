@@ -1,6 +1,0 @@
-2025-12-06 17:39:32.591974+09:00 jdbc[6]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]MEMBER MEMBER MEMBER \000d\000a\000d\000a\000d\000aselect * from MEMBER"; expected "MERGE"; SQL statement:
-MEMBER MEMBER MEMBER 
-
-
-select * from MEMBER [42001-240]
