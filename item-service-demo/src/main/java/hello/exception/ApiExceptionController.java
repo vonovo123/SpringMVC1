@@ -2,17 +2,12 @@ package hello.exception;
 
 import hello.exception.exception.BadRequestException;
 import hello.exception.exception.UserException;
-import hello.exception.exhandler.ErrorResult;
-import hello.loginservice.domain.member.Member;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import org.springframework.web.servlet.ModelAndView;
 
 @Slf4j
 @RestController

@@ -1,6 +1,6 @@
 package hello.itemservice.web.validation;
 
-import hello.itemservice.domain.item.Item;
+import hello.itemservice.domain.Item;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;

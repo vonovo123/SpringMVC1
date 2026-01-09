@@ -76,7 +76,7 @@
             <div th:text="#{page.item.deliveryCode}">배송 방식</div>
             <select th:field="*{deliveryCode}" class="form-select">
                 <option value="" th:text="#{page.item.deliveryCode.select}"> ===배송 방식 선택===</option>
-                <option th:each="code : ${deliveryCodes}" th:value="${code.code}" th:text="${code.displayName}">name</option>
+                <option th:each="code : ${deliveryCodes}" th:value="${code.name()}" th:text="${code.description}">name</option>
             </select>
             <div class="field-error" th:errors="*{deliveryCode}">배송방식에러</div>
         </div>

@@ -1,6 +1,6 @@
 package hello.itemService;
 
-import hello.itemservice.domain.item.Item;
+import hello.itemservice.domain.Item;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;

@@ -1,10 +1,9 @@
 package hello.loginservice.web.argumentResolver;
 
-import hello.loginservice.domain.member.Member;
+import hello.membeservice.domain.Member;
 import hello.loginservice.web.SessionConst;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
-import jakarta.validation.constraints.Size;
 import lombok.extern.slf4j.Slf4j;
 import org.jspecify.annotations.Nullable;
 import org.springframework.core.MethodParameter;

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 560px;
+        }
+        .field-error {
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<div class="container">
+    <div class="py-5 text-center"> <h2>회원간 이체</h2>
+    </div>
+    <div>
+        <h4 class="mb-3">송금회원 정보</h4>
+        <div>
+            <label for="sendMemberName" th:text="#{label.sendMember.name}">송금인명</label>
+            <input type="text" id="sendMemberName" name="sendMemberName" class="form-control" th:value="${sendMember.name}" readonly>
+        </div>
+        <div>
+            <label for="sendMemberAcctNo" th:text="#{label.sendMember.acctNo}">계좌번호</label>
+            <input type="text" id="sendMemberAcctNo" name="sendMemberAcctNo" class="form-control" th:value="${sendMember.acctNo}" readonly>
+        </div>
+        <div>
+            <label for="sendMemberPoint" th:text="#{label.sendMember.point}">잔액</label>
+            <input type="text" id="sendMemberPoint" name="sendMemberPoint" class="form-control" th:value="${sendMember.point}" readonly>
+        </div>
+
+    </div>
+    <hr class="my-4">
+    <div>
+        <h4 class="mb-3">수취인 정보입력</h4>
+        <form action="" th:action th:object="${transfer}" method="post">
+            <div th:if="${#fields.hasGlobalErrors()}">
+                <p class="field-error" th:text="${#fields.globalErrors()}">전역에러</p>
+            </div>
+            <div>
+                <label for="receiveMemberName" th:text="#{label.receiveMember.name}">수취인명</label>
+                <input type="text"
+                       class="form-control"
+                       id="receiveMemberName"
+                       th:errorclass="field-error"
+                       th:field="*{receiveMemberName}"
+                       th:placeholder="#{page.placeholder('수취인명')}">
+                <div class="field-error" th:errors="*{receiveMemberName}">수취인명에러</div>
+            </div>
+            <div>
+                <label for="receiveMemberAcctNo" th:text="#{label.receiveMember.acctNo}">수취계좌번호</label>
+                <input type="text"
+                       class="form-control"
+                       id="receiveMemberAcctNo"
+                       th:errorclass="field-error"
+                       th:field="*{receiveAcctNo}"
+                       th:placeholder="#{page.placeholder('수취계좌번호')}">
+                <div class="field-error" th:errors="*{receiveAcctNo}">수취계좌번호</div>
+            </div>
+            <div>
+                <label for="receiveMemberAmount" th:text="#{label.amount}">송금액</label>
+                <input type="text"
+                       class="form-control"
+                       id="receiveMemberAmount"
+                       th:errorclass="field-error"
+                       th:field="*{amount}"
+                       th:placeholder="#{page.placeholder('송금액')}">
+                <div class="field-error" th:errors="*{amount}">수취인명에러</div>
+            </div>
+            <hr class="my-4">
+
+            <div class="row">
+                <div class="col">
+                    <button class="w-100 btn btn-primary btn-lg" type="submit" th:text="#{button.transfer}">이체</button>
+                </div>
+                <div class="col">
+                    <button class="w-100 btn btn-secondary btn-lg" onclick="location.href='items.html'" th:onclick="|location.href='@{/home}'|" type="button" th:text="#{button.cancel}">취소</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div> <!-- /container -->
+</body>
+</html>

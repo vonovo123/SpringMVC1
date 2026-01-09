@@ -1,7 +1,7 @@
 package hello.loginservice.web;
 
-import hello.loginservice.domain.member.Member;
-import hello.loginservice.domain.member.MemberRepository;
+import hello.membeservice.domain.Member;
+import hello.membeservice.domain.MemberRepository;
 import hello.loginservice.web.argumentResolver.Login;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,10 +21,6 @@ public class HomeController {
 
     @GetMapping
     public String homeLogin(@Login Member loginMember, Model model ) {
-        //Object loginMember = sessionManager.getSession(request);
-//        HttpSession session = request.getSession(false);
-//        if(session== null) return "login/home";
-//        Member loginMember = (Member)session.getAttribute(SessionConst.LOGIN_MEMBER);
         if( loginMember == null) return "login/home";
         model.addAttribute("member", loginMember);
         return "login/loginHome";

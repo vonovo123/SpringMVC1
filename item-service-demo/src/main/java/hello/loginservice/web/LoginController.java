@@ -1,8 +1,8 @@
 package hello.loginservice.web;
 
-import hello.loginservice.domain.login.LoginForm;
-import hello.loginservice.domain.login.LoginService;
-import hello.loginservice.domain.member.Member;
+import hello.loginservice.domain.LoginForm;
+import hello.loginservice.domain.LoginService;
+import hello.membeservice.domain.Member;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import java.sql.SQLException;
 
 @Controller
 @Slf4j
@@ -26,7 +28,7 @@ public class LoginController {
 
     }
     @PostMapping("/login")
-    public String login(@Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult, @RequestParam(defaultValue="/home") String redirectURL, HttpServletRequest request) {
+    public String login(@Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult, @RequestParam(defaultValue="/home") String redirectURL, HttpServletRequest request) throws SQLException {
         if(bindingResult.hasErrors()) {
             return "login/loginForm";
         }
@@ -36,10 +38,7 @@ public class LoginController {
             bindingResult.reject("loginFail", "로그인 ID 또는 Password가 맞지 않습니다,");
             return "login/loginForm";
         }
-        //response.addCookie(new Cookie("memberId", String.valueOf(loginMember.getId())));
-        //sessionManager.createSession(loginMember, response);
         request.getSession(true).setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
-        log.info("redirect to {}", redirectURL);
         return "redirect:" + redirectURL;
     }
     @PostMapping("/logout")

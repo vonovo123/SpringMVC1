@@ -36,6 +36,21 @@
         <input type="text" id="name" th:field="*{name}" class="form-control"  th:errorclass="field-error">
         <div class="field-error" th:errors="*{name}" />
     </div>
+    <div>
+        <label for="acctNo">계좌번호</label>
+        <input type="text" id="acctNo" th:field="*{acctNo}" class="form-control"  th:errorclass="field-error">
+        <div class="field-error" th:errors="*{acctNo}" />
+    </div>
+    <div>
+        <label for="bankCd">계좌번호</label>
+
+        <select th:field="*{bankCd}" id="bankCd" class="form-select" th:errorclass="field-error">
+            <option value=""> ===은행 선택===</option>
+            <option th:each="code : ${bankCodes}" th:value="${code.description}" th:text="${code.name()}"></option>
+        </select>
+        <div class="field-error" th:errors="*{bankCd}">배송방식에러</div>
+    </div>
+
     <hr class="my-4">
     <div class="row">
         <div class="col">
